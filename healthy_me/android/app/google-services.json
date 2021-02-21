@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "65145844017",
+    "project_id": "healthyme-cabbf",
+    "storage_bucket": "healthyme-cabbf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:65145844017:android:d0ea0af9e637a02f330010",
+        "android_client_info": {
+          "package_name": "com.example.healthy_me"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "65145844017-6ocghjilf01rr21rtt4hjh6to3pqlve6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCLBYEyntR7FPeBn99pIRRE91KlVKfyn4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "65145844017-6ocghjilf01rr21rtt4hjh6to3pqlve6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
