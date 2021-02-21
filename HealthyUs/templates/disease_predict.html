@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <title>Health Data</title>
+        <style type="text/css">
+            body, html {
+            height: 100%;
+            }
+            *{
+                margin:0;
+                padding:0;
+            }
+            .header
+            {
+                height:100vh;
+            }
+            .navbar-style
+            {
+                box-shadow: 0 5px 10px #efefef
+            }
+            .logo
+            {
+                height:60px;
+                padding:10px 100px;
+            }
+            .container-fluid
+            {
+                padding:0 70px;
+                font-size: 13px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header"> 
+            <nav class="navbar navbar-style">
+                <div class="container">
+                    <div class="navbar-header">               
+                        <img class="logo" src="{{url_for('static',filename='healthymeicon.png')}}">
+                    </div>
+                </div>
+            </nav>
+        <div class="container-fluid">
+        <div>
+            <h1>Health Data</h1>
+        </div>
+        <div>
+            <table id = "my_table" class="table">
+                <thead>
+                    <th>Sr. No.</th>
+                    <th>Uid</th>
+                    <th>Name</th>
+                    <th>Height (Cm)</th>
+                    <th>Weight (Kg)</th>
+                    <th>BMI</th>
+                    <th>Heart Rate (BPM)</th>
+                    <th>Steps Taken</th>
+                    <th>Water Consumed (L)</th>
+                    <th>Health Status</th>
+                </thead>
+            </table>
+        </div>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-analytics.js"></script>
+    <script id="MainScript">
+        var index=0;    
+        var firebaseConfig = {
+            apiKey: "AIzaSyBCoWQbne0ELKe6W4LVDcfLRq0SAIFNMU4",
+            authDomain: "healthyme-cabbf.firebaseapp.com",
+            databaseURL: "https://healthyme-cabbf-default-rtdb.firebaseio.com",
+            projectId: "healthyme-cabbf",
+            storageBucket: "healthyme-cabbf.appspot.com",
+            messagingSenderId: "65145844017",
+            appId: "1:65145844017:web:ed086b66e86d5913330010",
+            measurementId: "G-6NJ3TCFE2B"
+          };
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+          firebase.analytics();
+          const db = firebase.firestore();
+          db.settings({ timestampsInSnapshots: true });
+            db.collection('profileInfo').get().then((snapshot)=>{
+            snapshot.forEach(doc => {
+                renderDetails(doc);
+            });
+          });
+          const detailList = document.querySelector('#my_table');
+          function renderDetails(doc){
+  
+              let tr = document.createElement('tr');
+              let td_srno = document.createElement('td');
+              let td_uid = document.createElement('td');
+              let td_name = document.createElement('td');
+              let td_height = document.createElement('td');
+              let td_weight = document.createElement('td');
+              let td_bmi = document.createElement('td');
+              let td_heartrate = document.createElement('td');
+              let td_stepstaken = document.createElement('td');
+              let td_waterconsumed = document.createElement('td');
+              let td_healthstatus = document.createElement('td');
+  
+              tr.setAttribute('data-id', doc.id);
+              td_srno.textContent = ++index;
+              td_uid.textContent = doc.data().Uid;
+              td_name.textContent= doc.data().Name;
+              td_height.textContent = doc.data().Height;
+              td_weight.textContent = doc.data().Weight;
+              td_bmi.textContent = doc.data().BMI;
+              td_heartrate.textContent = doc.data().HeartRate;
+              td_stepstaken.textContent = doc.data().Steps;
+              td_waterconsumed.textContent = doc.data().Water;
+              td_healthstatus.textContent= doc.data().HealthStatus;
+              
+              tr.appendChild(td_srno);
+              tr.appendChild(td_uid);
+              tr.appendChild(td_name);
+              tr.appendChild(td_height);
+              tr.appendChild(td_weight);
+              tr.appendChild(td_bmi);
+              tr.appendChild(td_heartrate);
+              tr.appendChild(td_stepstaken);
+              tr.appendChild(td_waterconsumed);
+              tr.appendChild(td_healthstatus);
+              
+              detailList.appendChild(tr);
+             
+          }
+        </script>
+    </body>
+</html>
+
+

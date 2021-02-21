@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <title>Healthy Us</title>
+        <style type="text/css">
+            body, html {
+            height: 100%;
+            }
+            *{
+                margin:0;
+                padding:0;
+            }
+            .header
+            {
+                height:100vh;
+            }
+            .navbar-style
+            {
+                box-shadow: 0 5px 10px #efefef
+            }
+            .logo
+            {
+                height:60px;
+                padding:10px 0;
+            }
+            .big-text
+            {
+                font-size: 82px;
+                color: #c1262c;
+            }
+            .small-text
+            {
+                margin: 0 10px;
+                font-size: 15px;
+                color: #c1262c;
+            }
+            a.btn
+            {
+                margin: 40px 5px;
+                width: 150px;
+                padding: 10px;
+                border-radius: 50px;
+            }
+            a.btn-first
+            {
+                background-color: #c1262c;
+                color: #fff
+            }
+            a.btn-second
+            {
+                background: transparent;
+                border: 1px solid #c1262c;
+                color: #333;
+            }
+            a.btn:hover
+            {
+                background: #c1262c;
+                border: none;
+                color: #fff;
+                box-shadow:5px 5px 10px #999;
+                trasition: 0.3s;
+            }       
+            .banner-info
+            {
+                margin:130px 0;
+            }
+            .banner-image
+            {
+                margin:30px 0;
+            }      
+        </style>
+      </head>
+    <body>
+        {% block body%}
+        <div class="header"> 
+            <nav class="navbar navbar-style">
+               <div class="container">
+                   <div class="navbar-header">
+                       <img class="logo" src="{{url_for('static',filename='healthymeicon.png')}}">
+                   </div>
+                   <a class="navbar navbar-nav small-text" href="/about_us">About Us</a>
+               </div>
+            </nav>
+         <div class="container">
+             <div class="row">
+                <div class="col-sm-6 banner-info">
+                     <h1 class="big-text"><b>Healthy Us</b></h1>
+                     <p1 class="small-text">An ultimate healthcare solution.</p1>
+                     <br>
+                     <a class="btn btn-first" href="/disease_predict"><b>Health Data</b></a>
+                     <a class="btn btn-second" href="/chatbot">Chat Bot</a>
+                </div>
+                <div class="col-sm-6 banner-image">
+                    <img class="image_responsive" src="{{url_for('static',filename='homepagepicture.png')}}">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+<!--
+
+<div id="Doctor" class="tabcontent">
+  <div class="head">
+      Find My Doctor
+    </div>
+    <form name="Doctor_search" id="DoctorForm" method="POST" action=/find_doctor>
+ <input type="text" class="form-control" name="doctor"><br>
+ <button type="submit" class="btn btn-primary" style="padding: 10px;" name="search_doctor">Search</button>
+ </form>
+</div>
+
+
+<!--<div id="Drug" class="tabcontent">
+  <form name="MedicineForm" id="medForm" method="POST">
+    <div class="head">
+      Know Your Drug
+    </div>
+    <div class="form-group">
+        <label for="medicine" align="left">Name</label>
+        <input type="text" class="form-control" id="medicine" placeholder="medicine name" name="medicine">
+        <br>
+      <button class="btn btn-primary" type="submit" method='POST'>Know about it</button>
+    </div>
+  </form>
+<script type="text/javascript">
+  function showResult(argument) {
+    // body...
+    document.getElementById(argument).style.color = "white";
+  }
+</script>
+</div>-->
+
+<!--
+<script>
+
+  
+function openTab(tabName,elmnt,color) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+    }
+    document.getElementById(tabName).style.display = "block";
+    elmnt.style.backgroundColor = color;
+
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+
+</script>
+
+    {% endblock %}
+  </body>
+</html>
+-->

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <title>About Us</title>
+        <style type="text/css">
+            body, html {
+                height: 100%;
+             }
+            *{
+                margin:0;
+                padding:0;
+            }
+            .header
+            {
+                height:100vh;
+            }
+            .navbar-style
+            {
+               box-shadow: 0 5px 10px #efefef
+            }
+            .logo
+            {
+                height:60px;
+                padding:10px 525px;
+            }
+            .container-fluid
+            {
+                padding:0 110px;
+                font-size: 15px;
+            }
+            .banner-info
+            {
+                margin:150px 0;
+            }
+             .banner-image
+            {
+                margin:0 0;
+            }      
+            .img-wrap
+            {
+                width:100%;
+                margin:70px 0;
+            }
+            .img-wrap img
+            {
+                width:100%;
+                padding:10px;
+                border-radius:50%;
+                box-shadow: 0 0 10px #999999;
+            }
+            .right {
+                float: right;
+                width: 400px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header"> 
+            <nav class="navbar navbar-style">
+                <div class="container">
+                    <div class="navbar-header">               
+                        <img class="logo" src="{{url_for('static',filename='healthymeicon.png')}}">
+                    </div>
+                </div>
+            </nav>
+        <section id="about_us">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-7 banner-info">
+                        <h2>Hrishikesh Gawas</h2>
+                        <p>I am an enthusiastic and passionate learner. A fourth-year electronics engineering student from Terna Engineering College, Navi Mumbai. Healthy Me App and Healthy Us Website provides a complete health tracking solution for your organization. We track your daily steps, heart rate, water consumption, BMI and give you regular insights into your health. The best thing we do is also check if you have any kinds of symptoms and predict your health status. With this, you get early warnings for any disease you might be having, so you can take quick actions against it. We always believe, <q>Prevention is better than cure!</q></p>
+                    </div>
+                    <div class="col-sm-5 banner-image">
+                        <div class="img-wrap right">
+                            <img src="{{url_for('static',filename='profilepicturecropped.jpg')}}">
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </body>
+</html>
+
+

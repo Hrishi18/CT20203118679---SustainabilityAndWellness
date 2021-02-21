@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <title>Chat Bot</title>
+        <style type="text/css">
+            body, html {
+                height: 100%;
+             }
+            *{
+                margin:0;
+                padding:0;
+            }
+            .header
+            {
+                height:100vh;
+            }
+            .navbar-style
+            {
+               box-shadow: 0 5px 10px #efefef
+            }
+            .logo
+            {
+                height:60px;
+                padding:10px 525px;
+            }
+            .container-fluid
+            {
+                padding:0 110px;
+                font-size: 15px;
+            }
+            h1 {
+                color: black;
+                margin-bottom: 0;
+                margin-top: 0;
+                text-align: center;
+                font-size: 40px;
+            }
+            h3 {
+                color: black;
+                font-size: 20px;
+                margin-top: 3px;
+                text-align: center;
+            }   
+            .big-text
+            {
+                font-size: 35px;
+                color: #c1262c;
+                margin-top: 40px;
+                text-align: center;
+
+            }           
+            #chatbox {
+                 margin-left: auto;
+                 margin-right: auto;
+                 width: 40%;
+                 margin-top: 60px;
+            }
+            #userInput {
+                 margin-left: auto;
+                 margin-right: auto;
+                 width: 40%;
+                 margin-top: 60px;
+             }
+             #textInput {
+                 width: 87%;
+                 border: none;
+                 border-bottom: 3px solid #c1262c;
+                 font-family: monospace;
+                 font-size: 17px;
+             }
+             #buttonInput {
+                 padding: 3px;
+                 font-family: monospace;
+                 font-size: 17px;
+             }
+             .userText {
+                 color: white;
+                 font-family: monospace;
+                 font-size: 17px;
+                 text-align: right;
+                 line-height: 30px;
+             }
+             .userText span {
+                 background-color: #009688;
+                 padding: 10px;
+                 border-radius: 2px;
+              }
+              .botText {
+                 color: white;
+                 font-family: monospace;
+                 font-size: 17px;
+                 text-align: left;   
+                 line-height: 30px;
+               }       
+               .botText span {
+                  background-color: #EF5350;
+                  padding: 10px;
+                  border-radius: 2px;
+               }
+        </style>
+    </head>
+    <body>
+        <div class="header"> 
+            <nav class="navbar navbar-style">
+                <div class="container">
+                    <div class="navbar-header">               
+                        <img class="logo" src="{{url_for('static',filename='healthymeicon.png')}}">
+                    </div>
+                </div>
+            </nav>
+        <section id="about_us">
+            <div class="container-fluid">
+             <div>
+                    <h2 class="big-text"><b>Healthy Us Chatbot</b></h2>
+                </div>
+                <div id = "chatbox">
+                    <p class = "botText"><span>Hi! Iam your Chatterbot.</span></p>
+                </div>
+                <div id = "userInput">
+                    <input id ="textInput" type ="text" name="msg" placeholder="Message">
+                    <input id = "buttonInput" type = "submit" value="Send">
+                </div>
+                <script>
+                    function getBotResponse(){
+                        var rawText = $("#textInput").val();
+                        var userHtml = '<p class = "userText"><span>' + rawText + '</span></p>';
+                        $("#textInput").val("");
+                        $("#chatbox").append(userHtml);
+                        document.getElementById('userInput').scrollIntoView({block:'start',behaviour:'smooth'});
+                        $.get("/get", {msg:rawText }).done(function(data) {
+                            var botHtml = '<p class ="botText"><span>' + data + '</span></p>';
+                            $("#chatbox").append(botHtml);
+                            document.getElementById('userInput').scrollIntoView({block : 'start',behaviour:'smooth'});
+                        });
+                    }
+                    $("#textInput").keypress(function(e) {
+                    if(e.which == 13) {
+                        getBotResponse();
+                        }
+                    });
+                    $("#buttonInput").click(function() {
+                        getBotResponse();
+                    })
+                </script>
+            </div>
+        
+            </div>
+        </section>
+    </body>
+</html>
+
+

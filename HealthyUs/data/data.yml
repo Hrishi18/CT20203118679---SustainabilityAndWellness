@@ -1,0 +1,27 @@
+categories:
+- conversations
+conversations:
+- - Good Evening
+  - Hey there, Good Evening!
+- - Good Morning
+  - Hey there, Good Morning!
+- - Good Afternoon
+  - Hey there, Good Afternoon!
+- - Hello
+  - Hey, how are you?
+- - I am fine but feeling bored.
+  - Ohh what you want me to do?
+- - I want to see a Movie.
+  - Ok shall I give your favourite movie list?
+- - Yes Avengers playlist.
+  - Okay done enjoy your movie.
+- - What is your Name?
+  - My name is Chatterbot, What's your name?
+- - My name is
+  - Wow! Cool name.
+- - Are you a robot?
+  - Yes, I am a robot, but I'm good one. Let me prove it! How can I help you?
+- - What is the name of our organization?
+  - We work in XYZ Organization.
+- - How many employees work in our organization?
+  - Total 100 employees work here.
